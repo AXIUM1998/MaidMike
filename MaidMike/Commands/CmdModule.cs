@@ -1,12 +1,15 @@
-﻿using DSharpPlus.CommandsNext;
-using DSharpPlus.CommandsNext.Attributes;
+﻿using DSharpPlus;
+using DSharpPlus.Entities;
+using DSharpPlus.SlashCommands;
+using MaidMike.Helpers;
 
 namespace MaidMike.Commands {
-	public class CmdModule : BaseCommandModule {
+	public class CmdModule : ApplicationCommandModule {
         
-		[Command("ping")]
-		public async Task PingCmd(CommandContext ctx) {
-			await ctx.RespondAsync("Pong!");
+		[SlashCommand("ping", "pong")]
+		public async Task PingCmd(InteractionContext ctx) {
+			LogHelper.LogDebug("hit ping command"); 
+			await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new DiscordInteractionResponseBuilder().WithContent("pong"));
 		}
-	}
+    }
 }
