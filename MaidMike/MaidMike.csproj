@@ -19,6 +19,7 @@
       <None Update="config.cfg">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+      <None Remove="config.default.cfg" />
     </ItemGroup>
 
 </Project>
